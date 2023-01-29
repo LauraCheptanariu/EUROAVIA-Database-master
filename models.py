@@ -24,16 +24,34 @@ import pandas as pd
 db = SQLAlchemy()
 DB_NAME = "baza.db"
 
-data = pd.read_excel('database.xlsx',index_col=None)
-database_members = pd.DataFrame(data, columns=['Nume', 'Prenume','CNP','Serie buletin', 'Numar buletin','Adresa domiciliu','Email','Telefon','Facultate','Experienta in EA','Departament','Subdepartament','Pariticipant/Orga Freshers','Pariticipant/Orga AcWo','Pariticipant/Orga HSS','Pariticipant/Orga WinterCamp','Pariticipant/Orga DroWo','Pariticipant/Orga Alumni','Pariticipant/Orga RoWo','Pariticipant/Orga AeroCamp','ACC','Mentiuni'])
-database_members=database_members.fillna('')
+# data = pd.read_excel('database.xlsx',index_col=None)
+# database_members = pd.DataFrame(data, columns=['Nume', 'Prenume','CNP','Serie buletin', 'Numar buletin','Adresa domiciliu','Email','Telefon','Facultate','Experienta in EA','Departament','Subdepartament','Pariticipant/Orga Freshers','Pariticipant/Orga AcWo','Pariticipant/Orga HSS','Pariticipant/Orga WinterCamp','Pariticipant/Orga DroWo','Pariticipant/Orga Alumni','Pariticipant/Orga RoWo','Pariticipant/Orga AeroCamp','ACC','Mentiuni'])
+# database_members=database_members.fillna('')
 
 class Person():
     id = db.Column(db.String(150), primary_key = True) #toate clasele pe care le cream aici incep cu id
-    username = db.Column(db.String(150), unique=True)
-    password1 = db.Column(db.String(150))
-    password2=db.Column(db.String(150))
-    user_credentials=db.Column(db.String(150))
+    last_name = db.Column(db.String(150))
+    first_name = db.Column(db.String(150))
+    CNP = db.Column(db.Integer())
+    series =db.Column(db.String(150))
+    number =db.Column(db.Integer())
+    adress =db.Column(db.String(150))
+    email =db.Column(db.String(150))
+    phonenumber =db.Column(db.String(150))
+    college = db.Column(db.String(150))
+    experience = db.Column(db.String(150))
+    department = db.Column(db.String(150))
+    subdepartment = db.Column(db.String(150))
+    freshers = db.Column(db.String(150))
+    acwo = db.Column(db.String(150))
+    hss = db.Column(db.String(150))
+    wintercamp = db.Column(db.String(150))
+    drowo = db.Column(db.String(150))
+    alumni = db.Column(db.String(150))
+    rowo = db.Column(db.String(150))
+    aerocamp = db.Column(db.String(150))
+    acc = db.Column(db.String(150))
+    mention = db.Column(db.String(150))
 
     """
     metoda __init__ da niste valori standard obiectelor pe care le cream in cazul in care acestea nu sunt pasate de catre noi
